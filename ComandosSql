@@ -1,0 +1,61 @@
+Comandos SQL
+
+SELECT nome, Ano FROM filmes
+WHERE id < 15
+
+SELECT nome, Ano, Duracao FROM Filmes
+ORDER BY Ano asc
+
+SELECT Nome, Ano, Duracao from Filmes
+where id = 28
+
+SELECT nome, Ano, Duracao FROM Filmes
+where Ano = 1997
+
+SELECT nome, Ano, Duracao FROM Filmes
+where Ano >= 2000
+
+SELECT nome, Ano, Duracao FROM Filmes
+where Duracao > 100 and Duracao < 150
+ORDER BY Duracao asc
+
+SELECT Ano,COUNT(Ano) AS Quantidade FROM Filmes
+WHERE Ano > 1953
+GROUP BY ANO
+ORDER BY Quantidade DESC
+
+SELECT * FROM ATORES
+WHERE Genero = 'M'
+
+SELECT * FROM ATORES
+WHERE Genero = 'F'
+ORDER BY 2
+
+SELECT a.Nome, c.Genero FROM FilmesGenero b
+INNER JOIN 
+Filmes a
+ON a.Id = b.IdFilme
+INNER JOIN
+Generos c
+ON c.Id = b.IdGenero
+
+SELECT a.Nome, c.Genero FROM FilmesGenero b
+INNER JOIN 
+Filmes a
+ON a.Id = b.IdFilme
+INNER JOIN
+Generos c
+ON c.Id = b.IdGenero
+WHERE c.Genero like 'Mist%'
+
+SELECT a.Nome,d.PrimeiroNome, d.UltimoNome, c.Papel as Papel FROM FilmesGenero b
+INNER JOIN 
+Filmes a
+ON a.Id = b.IdFilme
+INNER JOIN
+ElencoFilme c
+ON c.IdFilme = b.IdFilme
+INNER JOIN
+Atores d
+ON d.Id = c.IdAtor
+
